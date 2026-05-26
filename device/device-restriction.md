@@ -29,8 +29,9 @@ CPU, GPU, RAM,  Android 버전, AI 가속기(NPU) 등이 모두 다르다.
 - 둘 다 함께 사용
 
 <br>
+<br>
 
-# 1. Android 버전 체크
+## 1. Android 버전 체크
 
 특정 API는 특정 Android 버전 이상에서만 동작한다.
 
@@ -47,8 +48,9 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
 - 보안 정책 지원 여부
 
 <br>
+<br>
 
-# 2. CPU / ABI 체크
+## 2. CPU / ABI 체크
 
 AI 모델은 대부분 ARM64 환경을 요구한다.
 
@@ -80,8 +82,9 @@ arm64-v8a
 환경을 요구한다.
 
 <br>
+<br>
 
-# 3. 제조사 / 기기 모델 체크
+## 3. 제조사 / 기기 모델 체크
 
 특정 제조사 또는 특정 모델만 허용하는 경우도 있다.
 
@@ -102,7 +105,7 @@ if (manufacturer == "Samsung") {
 
 <br>
 
-# 4. 시스템 Feature 체크
+## 4. 시스템 Feature 체크
 
 안드로이드에서 가장 많이 사용하는 방식 중 하나이다.
 
@@ -124,8 +127,9 @@ if (pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
 - AR 기능
 
 <br>
+<br>
 
-# 5. RAM / 성능 체크
+## 5. RAM / 성능 체크
 
 온디바이스 AI는 메모리를 많이 사용한다.
 
@@ -149,8 +153,9 @@ val totalRam = memoryInfo.totalMem
 ```
 
 <br>
+<br>
 
-# 6. GPU / AI 가속 지원 체크
+## 6. GPU / AI 가속 지원 체크
 
 고성능 AI 기능은:
 
@@ -172,8 +177,9 @@ val totalRam = memoryInfo.totalMem
 특히 AI 추론 속도에 큰 영향을 준다.
 
 <br>
+<br>
 
-# 7. Manifest로 설치 자체 제한
+## 7. Manifest로 설치 자체 제한
 
 앱 설치 가능 여부를 Play Store에서 제한할 수도 있다.
 
@@ -188,6 +194,7 @@ val totalRam = memoryInfo.totalMem
 - 지원 기기 → 설치 가능
 - 미지원 기기 → Play Store에서 앱이 보이지 않음
 
+<br>
 <br>
 
 # 실제 AI 기능 흐름 예시
@@ -219,7 +226,7 @@ DeviceCapabilityChecker
 
 <br>
 
-# 간단한 예시 코드
+### 간단한 예시 코드
 
 ```kotlin
 fun isSupportedDevice(): Boolean {
@@ -228,32 +235,24 @@ fun isSupportedDevice(): Boolean {
 }
 ```
 
-실무에서는 여기에:
+실무에서는 여기에 다음과 같은 것들이 추가된다.
 
 - RAM 조건
 - 제조사 whitelist
 - GPU 지원
 - AI 가속 지원
 
-등이 추가된다.
-
 <br>
 
 # 정리
 
-안드로이드의 기기 제한은 대부분:
+안드로이드의 기기 제한은 대부분 다음을 통해 처리한다.
 
 - 코드로 기기 성능 검사
 - 시스템 기능 검사
 - Manifest 설치 제한
 
-을 통해 처리한다.
 
-특히 Gemma 같은 온디바이스 AI는:
-
-- RAM
-- CPU 구조
-- GPU/NPU 성능
-- Android 버전
+Gemma와 같은 온디바이스 AI는 RAM, CPU 구조, GPU/NPU 성능, Android 버전
 
 등을 반드시 확인해야 안정적으로 동작할 수 있다.
