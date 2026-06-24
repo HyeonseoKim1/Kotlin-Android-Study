@@ -333,7 +333,7 @@ Modifier.aspectRatio(16f / 9f)
 
 <br>
 
-## 9. 정리
+## 10. 정리
 
 - AspectRatio는 가로 세로 비율을 유지하는 Modifier이다.
 - 이미지, 카드, 배너, 영상 썸네일 구현 시 자주 사용한다.
