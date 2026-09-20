@@ -1,5 +1,4 @@
-# MockK 활용법 — 안드로이드 프로젝트에서 자주 쓰는 모킹 패턴
-
+# MockK 활용법
 1. 개요
 2. mockk vs relaxed mockk
 3. every / coEvery로 동작 정의하기
