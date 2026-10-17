@@ -17,7 +17,7 @@
 11. 백엔드의 미들웨어 (FastAPI)
 12. 디자인 패턴 관점
 13. 흔한 실수와 주의점
-14. 면접 대비 질문
+14. 질문 정리
 15. 정리
 
 <br>
@@ -1025,7 +1025,7 @@ fun loggingDecorator(next: Handler): Handler = { request ->
 
 <br>
 
-# 14. 면접 대비 질문
+# 14. 질문 정리
 
 ## 14.1 OkHttp Interceptor와 Authenticator의 차이는?
 
